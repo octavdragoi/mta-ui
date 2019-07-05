@@ -10,7 +10,7 @@
 	<!--</App>-->
 	<!-- view content goes here -->
 	<!-- this HTML paragraph is used as a spacer -->
-	<html:p/>
+
 	<l:Grid defaultSpan="L12 M12 S12">
 		<l:content>
 			<VBox id="vBoxCol1" class="column">

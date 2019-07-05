@@ -4,7 +4,6 @@ sap.ui.define([
 	"use strict";
 
 	return Controller.extend("it.tum.sap.ui.controller.Details", {
-
 		/**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.
 		 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
@@ -12,7 +11,7 @@ sap.ui.define([
 		 */
 		onInit: function () {
 			// var dataModel = new sap.ui.model.odata.ODataModel(
-			// 	"models/GBI.xsodata");
+			// 	"/quality/odata/v2/ViewConsumerServices/");
 
 			// // after that, we can bind the odata model the
 			// // SalesOrders view, so controls within the view can use them
@@ -43,6 +42,12 @@ sap.ui.define([
 		 */
 		onExit: function () {
 
+		},
+
+		onSelectChange: function (oControlEvent) {
+			// var context = oControlEvent.getParameter("rowContext");
+
+			// var imageId = this.getView().getModel().getProperty("imagePath", context);
 		}
 
 	});
