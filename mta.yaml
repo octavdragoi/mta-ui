@@ -13,6 +13,7 @@ modules:
     requires:
       - name: mta_ui_html5_repo_runtime
       - name: uaa_mta_ui
+      - name: dest_mta_ui
   - name: mta_ui_ui_deployer
     type: com.sap.html5.application-content
     path: mta_ui_ui_deployer

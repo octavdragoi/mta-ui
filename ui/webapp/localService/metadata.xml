@@ -1,0 +1,12 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:sap="http://www.sap.com/Protocols/SAPData"
+	xmlns:ux="http://www.sap.com/Protocols/OData4SAP/UX" xmlns:gp="http://www.sap.com/Protocols/SAPData/GenericPlayer" Version="1.0">
+	<edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ViewConsumerServices">
+			<EntityType Name="AggregatesView">
+				<Key><PropertyRef Name="defect"/></Key><Property Name="defect" Type="Edm.String" Nullable="false"/><Property Name="factoryName" Type="Edm.String"/><Property Name="mHour" Type="Edm.Int32"/><Property Name="mDay" Type="Edm.Int32"/><Property Name="mMonth" Type="Edm.Int32"/><Property Name="mYear" Type="Edm.Int32"/><Property Name="NumDefect" Type="Edm.Int32"/></EntityType>
+			<EntityType Name="ItemView">
+				<Key><PropertyRef Name="ItemID"/></Key><Property Name="ItemID" Type="Edm.Int32" Nullable="false"/><Property Name="productID" Type="Edm.Int32"/><Property Name="imagePath" Type="Edm.String"/><Property Name="defect" Type="Edm.String"/><Property Name="date" Type="Edm.DateTimeOffset"/><Property Name="factory" Type="Edm.String"/></EntityType>
+			<EntityContainer Name="EntityContainer" m:IsDefaultEntityContainer="true"><EntitySet Name="AggregatesView" EntityType="ViewConsumerServices.AggregatesView"/><EntitySet Name="ItemView" EntityType="ViewConsumerServices.ItemView"/></EntityContainer>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

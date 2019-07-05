@@ -6,6 +6,13 @@
   },
   "routes": [
     {
+      "source": "^/quality/(.*)$",
+      "target": "$1",
+      "authenticationType": "none",
+      "destination": "quality",
+      "csrfProtection": false
+    },
+    {
       "source": "^(.*)$",
       "target": "$1",
       "service": "html5-apps-repo-rt",

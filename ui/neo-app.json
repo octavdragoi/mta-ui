@@ -18,6 +18,14 @@
         "entryPath": "/test-resources"
       },
       "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/quality",
+      "target": {
+        "type": "destination",
+        "name": "quality"
+      },
+      "description": "Quality Inspection WS"
     }
   ],
   "sendWelcomeFileRedirect": true
