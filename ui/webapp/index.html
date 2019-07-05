@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>ui</title>
+		<script id="sap-ui-bootstrap"
+			src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+			data-sap-ui-theme="sap_belize"
+			data-sap-ui-resourceroots='{"it.tum.sap.ui": "./"}'
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"
+			data-sap-ui-async="true"
+			data-sap-ui-frameOptions="trusted">
+		</script>
+		<script>
+			// here we want to load our Main view
+			// tell SAPUI5 where to look for resources
+			sap.ui.localResources("content"); // create an instance of our view 
+			content_view = sap.ui.view({
+			// unique identifier for this instance
+			id:"idmain1",
+			// location and name of the view 
+			viewName:"content.Main",
+			// type of the view, i.e. XML, JavaScript, JSON...
+			}); type:sap.ui.core.mvc.ViewType.XML
+			// place the output of our view on this page
+			content_view.placeAt("uiArea"); 
+		</script>
+	</head>
+	<body class="sapUiBody">
+		<div data-sap-ui-component data-name="it.tum.sap.ui" data-id="container" data-settings='{"id" : "ui"}'></div>
+	</body>
+</html>
