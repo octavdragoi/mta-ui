@@ -1,4 +1,4 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:table="sap.ui.table" xmlns:l="sap.ui.commons.layout"
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:table="sap.ui.table" xmlns:l="sap.ui.layout"
 	controllerName="it.tum.sap.ui.controller.Details" xmlns:html="http://www.w3.org/1999/xhtml">
 	<!--<App>-->
 	<!--	<pages>-->
@@ -9,82 +9,113 @@
 	<!--</App>-->
 	<!-- this HTML paragraph is used as a spacer -->
 	<html:p/>
-	<!-- This is the text that we want to show -->
-	<table:Table id="ProductsDefectsTable" visibleRowCount="10" selectionMode="Single" editable="false" rows="{/ItemView}">
-		<table:Column sortProperty="ItemID">
-			<!-- the label is shown in the header of the table -->
-			<table:label>
-				<Label text="Item ID" design="Bold"/>
-			</table:label>
-			<!-- for each column, a template is required which
+	<l:Grid defaultSpan="L12 M12 S12">
+		<l:content>
+			<VBox id="vBoxCol3" class="column">
+				<html:div>
+					Products details
+				</html:div>
+				<layoutData>
+					<l:GridData span="L4 M4 S12"/>
+				</layoutData>
+			</VBox>
+			<VBox id="vBoxCol1" class="column">
+				<html:div>
+				</html:div>
+				<layoutData>
+					<l:GridData span="L4 M4 S6"/>
+				</layoutData>
+			</VBox>
+			<VBox id="vBoxCol2" class="column">
+				<html:div></html:div>
+				<layoutData>
+					<l:GridData span="L4 M4 S6"/>
+				</layoutData>
+			</VBox>
+			<VBox id="vBoxCol4" class="column">
+				<html:div>
+					<table:Table id="ProductsDefectsTable" visibleRowCount="10" selectionMode="Single" editable="false" rows="{/ItemView}">
+						<table:Column sortProperty="ItemID">
+							<!-- the label is shown in the header of the table -->
+							<table:label>
+								<Label text="Item ID" design="Bold"/>
+							</table:label>
+							<!-- for each column, a template is required which
             defines how how the data is visualized -->
-			<table:template>
-				<!-- this label defines the actual content (aka the
+							<table:template>
+								<!-- this label defines the actual content (aka the
       rows) that are shown in the table. here, we bind the
       column CUSTOMER_NAME of the data source
       to this table column -->
-				<Label text="{ItemID}"/>
-			</table:template>
-		</table:Column>
-		<table:Column sortProperty="productID">
-			<!-- the label is shown in the header of the table -->
-			<table:label>
-				<Label text="Product ID" design="Bold"/>
-			</table:label>
-			<!-- for each column, a template is required which
+								<Label text="{ItemID}"/>
+							</table:template>
+						</table:Column>
+						<table:Column sortProperty="productID">
+							<!-- the label is shown in the header of the table -->
+							<table:label>
+								<Label text="Product ID" design="Bold"/>
+							</table:label>
+							<!-- for each column, a template is required which
             defines how how the data is visualized -->
-			<table:template>
-				<!-- this label defines the actual content (aka the
+							<table:template>
+								<!-- this label defines the actual content (aka the
       rows) that are shown in the table. here, we bind the
       column CUSTOMER_NAME of the data source
       to this table column -->
-				<Label text="{productID}"/>
-			</table:template>
-		</table:Column>
-		<table:Column sortProperty="defect">
-			<!-- the label is shown in the header of the table -->
-			<table:label>
-				<Label text="Defect" design="Bold"/>
-			</table:label>
-			<!-- for each column, a template is required which
+								<Label text="{productID}"/>
+							</table:template>
+						</table:Column>
+						<table:Column sortProperty="defect">
+							<!-- the label is shown in the header of the table -->
+							<table:label>
+								<Label text="Defect" design="Bold"/>
+							</table:label>
+							<!-- for each column, a template is required which
             defines how how the data is visualized -->
-			<table:template>
-				<!-- this label defines the actual content (aka the
+							<table:template>
+								<!-- this label defines the actual content (aka the
       rows) that are shown in the table. here, we bind the
       column CUSTOMER_NAME of the data source
       to this table column -->
-				<Label text="{defect}"/>
-			</table:template>
-		</table:Column>
-		<table:Column sortProperty="date">
-			<!-- the label is shown in the header of the table -->
-			<table:label>
-				<Label text="Date" design="Bold"/>
-			</table:label>
-			<!-- for each column, a template is required which
+								<Label text="{defect}"/>
+							</table:template>
+						</table:Column>
+						<table:Column sortProperty="date">
+							<!-- the label is shown in the header of the table -->
+							<table:label>
+								<Label text="Date" design="Bold"/>
+							</table:label>
+							<!-- for each column, a template is required which
             defines how how the data is visualized -->
-			<table:template>
-				<!-- this label defines the actual content (aka the
+							<table:template>
+								<!-- this label defines the actual content (aka the
       rows) that are shown in the table. here, we bind the
       column CUSTOMER_NAME of the data source
       to this table column -->
-				<Label text="{date}"/>
-			</table:template>
-		</table:Column>
-		<table:Column sortProperty="factory">
-			<!-- the label is shown in the header of the table -->
-			<table:label>
-				<Label text="Factory" design="Bold"/>
-			</table:label>
-			<!-- for each column, a template is required which
+								<Label text="{date}"/>
+							</table:template>
+						</table:Column>
+						<table:Column sortProperty="factory">
+							<!-- the label is shown in the header of the table -->
+							<table:label>
+								<Label text="Factory" design="Bold"/>
+							</table:label>
+							<!-- for each column, a template is required which
             defines how how the data is visualized -->
-			<table:template>
-				<!-- this label defines the actual content (aka the
+							<table:template>
+								<!-- this label defines the actual content (aka the
       rows) that are shown in the table. here, we bind the
       column CUSTOMER_NAME of the data source
       to this table column -->
-				<Label text="{factory}"/>
-			</table:template>
-		</table:Column>
-	</table:Table>
+								<Label text="{factory}"/>
+							</table:template>
+						</table:Column>
+					</table:Table>
+				</html:div>
+				<layoutData>
+					<l:GridData span="L12 M12 S12"/>
+				</layoutData>
+			</VBox>
+		</l:content>
+	</l:Grid>
 </mvc:View>
