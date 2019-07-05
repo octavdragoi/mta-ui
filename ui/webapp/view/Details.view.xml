@@ -10,7 +10,7 @@
 	<!-- this HTML paragraph is used as a spacer -->
 	<html:p/>
 	<!-- This is the text that we want to show -->
-	<table:Table id="salesOrdersTable" visibleRowCount="10" selectionMode="Single" editable="false" rows="{/ItemView}">
+	<table:Table id="ProductsDefectsTable" visibleRowCount="10" selectionMode="Single" editable="false" rows="{/ItemView}">
 		<table:Column sortProperty="ItemID">
 			<!-- the label is shown in the header of the table -->
 			<table:label>

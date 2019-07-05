@@ -14,4 +14,84 @@
  
  <!-- This is the text that we want to show -->
 	<Label text="Overview page" />
+		<viz:VizFrame id="idpiechartDefects" width="auto"
+			legendVisible="true"
+		    uiConfig="{applicationSet:'fiori'}" vizType="pie"
+		    vizProperties="{
+				   plotArea:{
+		                            dataLabel:{visible: true}
+					    },
+		                            title : {text:'Defects Distribution'}
+				    }"
+		            noDataText="Process some data First!"
+				    renderComplete="handleRenderComplete">
+		  <viz:dataset>
+			<viz.data:FlattenedDataset id="flattenDataDefectType" data="{/countDefect}">
+		           <viz.data:dimensions>
+			     <viz.data:DimensionDefinition name="Defect Type" value="{defect}" />
+		           </viz.data:dimensions>
+			   <viz.data:measures>
+		              <viz.data:MeasureDefinition name="Defect Number" value="{NumDefect}" />
+			   </viz.data:measures>
+			 </viz.data:FlattenedDataset>
+		 </viz:dataset>
+			       
+	       <viz:feeds>
+	         <viz.feeds:FeedItem uid="size" type="Measure" values="Defect Number" />
+			 <viz.feeds:FeedItem uid="color" type="Dimension" values="Defect Type" />
+			</viz:feeds>
+		</viz:VizFrame>
+		
+		<viz:VizFrame id="idpiechartFactory" width="auto"
+			legendVisible="true"
+		    uiConfig="{applicationSet:'fiori'}" vizType="pie"
+		    vizProperties="{
+				   plotArea:{
+		                            dataLabel:{visible: true}
+					    },
+		                            title : {text:'Defect Distribution per Factory'}
+				    }"
+		            noDataText="Process some data First!"
+				    renderComplete="handleRenderComplete">
+		  <viz:dataset>
+			<viz.data:FlattenedDataset id="flattenDataFactory" data="{/countFactory}">
+		           <viz.data:dimensions>
+			     <viz.data:DimensionDefinition name="Factory Location" value="{factoryName}" />
+		           </viz.data:dimensions>
+			   <viz.data:measures>
+		              <viz.data:MeasureDefinition name="Defect Number" value="{NumDefect}" />
+			   </viz.data:measures>
+			 </viz.data:FlattenedDataset>
+		 </viz:dataset>
+			       
+	       <viz:feeds>
+	         <viz.feeds:FeedItem uid="size" type="Measure" values="Defect Number" />
+			 <viz.feeds:FeedItem uid="color" type="Dimension" values="Factory Location" />
+			</viz:feeds>
+		</viz:VizFrame>
+		
+		<viz:VizFrame id="CountDefectBar" width="auto"
+			legendVisible="false"
+		    uiConfig="{applicationSet:'fiori'}" vizType="bar"
+		    vizProperties="{
+					title : {text:'Number of total Defects per Type'}
+				    }"
+		            noDataText="Process some data First!"
+				    renderComplete="handleRenderComplete">
+		  <viz:dataset>
+			<viz.data:FlattenedDataset id="flattenDataTimeSeries" data="{/countDefect}">
+		           <viz.data:dimensions>
+			     <viz.data:DimensionDefinition name="Defect Type" value="{defect}" />
+		           </viz.data:dimensions>
+			   <viz.data:measures>
+		              <viz.data:MeasureDefinition name="Defect Number" value="{NumDefect}" />
+			   </viz.data:measures>
+			 </viz.data:FlattenedDataset>
+		 </viz:dataset>
+			       
+	       <viz:feeds>
+	         <viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Defect Number" />
+			 <viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Defect Type" />
+			</viz:feeds>
+		</viz:VizFrame>
 </mvc:View>
