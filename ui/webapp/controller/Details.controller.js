@@ -57,21 +57,6 @@ sap.ui.define([
 			var factory = this.getView().getModel().getProperty("factory", context);
 			var date = this.getView().getModel().getProperty("date", context);
 
-			// var displayText = "<table style='width:490px;'>"
-			// 	+ "<tbody>"
-			// 	+ "<tr>"
-			// 	+ "<td style='width:223px;'><strong> Defect Type </strong></td>"
-			// 	+ "<td style='width:279px;'>"
-			// 	+ "<h1><strong><span>" + defect + "</span></strong></h1></td></tr><tr>"
-			// 	+ "<td style='width:223px;'><strong> Date </strong></td>"
-			// 	+ "<td style='width:279px;'>" + date + "</td></tr><tr>"
-			// 	+ "<td style='width:223px;'><strong>Product Id</strong></td>"
-			// 	+ "<td style='width:279px;'><strong>" + productId + "</strong></td>"
-			// 	+ "</tr><tr>"
-			// 	+ "<td style='width:223px;'><strong> Factory </strong></td>"
-			// 	+ "<td style='width:279px;'><strong>" + factory + "</strong></td>"
-			// 	+ "</tr></tbody></table>";
-
 			var displayText = "<h1>" + defect + "</h1><br>" + "<h2>" + date + "</h2><br>" + "<h2>" + productId + "</h2><br>" + "<h3>" + factory +
 				"</h3>";
 			this.getView().byId("label1").setHtmlText(displayText);
