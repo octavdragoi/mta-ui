@@ -13,7 +13,7 @@
 
 	<l:Grid defaultSpan="L12 M12 S12">
 		<l:content>
-			<VBox id="vBoxCol1" class="column">
+			<VBox id="vBoxCol1" class="chart">
 				<html:div>
 					<viz:VizFrame id="idpiechartDefects" width="auto" legendVisible="true" uiConfig="{applicationSet:'fiori'}" vizType="pie"
 						vizProperties="{ plotArea:{ dataLabel:{visible: true} }, title : {text:'Defects Distribution'} }" noDataText="Process some data First!"
@@ -38,7 +38,7 @@
 					<l:GridData span="L6 M6 S12"/>
 				</layoutData>
 			</VBox>
-			<VBox id="vBoxCol2" class="column">
+			<VBox id="vBoxCol2" class="chart">
 				<html:div>
 					<viz:VizFrame id="idpiechartFactory" width="auto" legendVisible="true" uiConfig="{applicationSet:'fiori'}" vizType="pie"
 						vizProperties="{ plotArea:{ dataLabel:{visible: true} }, title : {text:'Defect Distribution per Factory'} }"
@@ -63,7 +63,7 @@
 					<l:GridData span="L6 M6 S12"/>
 				</layoutData>
 			</VBox>
-			<VBox id="vBoxCol3" class="column">
+			<VBox id="vBoxCol3" class="chart">
 				<html:div>
 					<viz:VizFrame id="CountDefectBar" width="auto" legendVisible="false" uiConfig="{applicationSet:'fiori'}" vizType="bar"
 						vizProperties="{ title : {text:'Number of total Defects per Type'} }" noDataText="Process some data First!"
