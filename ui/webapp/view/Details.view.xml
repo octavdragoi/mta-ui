@@ -11,28 +11,26 @@
 	<html:p/>
 	<l:Grid defaultSpan="L12 M12 S12">
 		<l:content>
-			<VBox id="vBoxCol1" class="column">
-				<html:div>
-					<Image id="img1" src="https://quality-assurance-image-service.cfapps.eu10.hana.ondemand.com?key=5ac69176-cd9d-48d0-9267-f2776d99c421" width="200px"></Image>
-				</html:div>
+			<VBox id="vBoxCol1">
+				<!--<html:div>-->
+					<Image id="img1" width="200px" src="background.jpg" class="image-box"></Image>
+				<!--</html:div>-->
 				<layoutData>
-					<l:GridData span="L3 M4 S6"/>
+					<l:GridData span="L2 M4 S6"/>
 				</layoutData>
 			</VBox>
-			<VBox id="vBoxCol2" class="column">
-				<html:div>
-					<Image id="img2" src="https://quality-assurance-image-service.cfapps.eu10.hana.ondemand.com?key=03d75050-541f-419f-ae2d-d45689d09247" width="200px"></Image>
-				</html:div>
+			<VBox id="vBoxCol2">
+				<!--<html:div>-->
+					<Image id="img2" width="200px" src="background.jpg" class="image-box"></Image>
+				<!--</html:div>-->
 				<layoutData>
-					<l:GridData span="L3 M4 S6"/>
+					<l:GridData span="L2 M4 S6"/>
 				</layoutData>
 			</VBox>
-			<VBox id="vBoxCol3" class="column">
-				<html:div>
-					Products details
-				</html:div>
+			<VBox id="vBoxCol3" class="column" height="260px">
+				<FormattedText id="label1"></FormattedText>
 				<layoutData>
-					<l:GridData span="L6 M4 S12"/>
+					<l:GridData span="L8 M4 S12"/>
 				</layoutData>
 			</VBox>
 			<VBox id="vBoxCol4" class="column">

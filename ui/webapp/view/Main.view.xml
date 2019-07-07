@@ -12,9 +12,9 @@
 							showFeederTool="false"
 							worksetItemSelected="itemSelected">
 							
-							<ux3:headerItems>
-								<Label text="GBI_###" tooltip="Username"/>
-							</ux3:headerItems>
+							<!--<ux3:headerItems>-->
+							<!--	<Label text="GBI_###" tooltip="Username"/>-->
+							<!--</ux3:headerItems>-->
 							
 							<!-- this set of items defines what we see as
 							navigation items in our application -->

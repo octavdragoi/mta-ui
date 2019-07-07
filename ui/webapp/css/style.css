@@ -1,1 +1,10 @@
 /* Enter your custom styles here */
+.chart {
+	border-style: ridge;
+	margin-top: 30px;
+	margin-bottom: -25px;
+}
+
+.image-box {
+	border: 3px dashed #ccc;
+}
