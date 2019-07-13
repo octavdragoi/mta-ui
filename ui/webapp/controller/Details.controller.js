@@ -10,6 +10,7 @@ sap.ui.define([
 		 * @memberOf it.tum.sap.ui.view.Details
 		 */
 		onInit: function () {
+			
 			// var dataModel = new sap.ui.model.odata.ODataModel(
 			// 	"/quality/odata/v2/ViewConsumerServices/");
 
@@ -24,7 +25,14 @@ sap.ui.define([
 		 * @memberOf it.tum.sap.quality_inspection_fa.view.Details
 		 */
 		onBeforeRendering: function () {
-
+			
+			var model = this.getView().getModel();
+			model.read("/Products",
+			{
+				urlParameters : {
+					"$expand":"images"
+				}
+			});
 		},
 
 		/**
@@ -49,20 +57,29 @@ sap.ui.define([
 			//the service url to image service
 			var baseImageUrl = "https://" + "quality-assurance-image-service.cfapps.eu10.hana.ondemand.com?key=";
 
-			var imageId1 = this.getView().getModel().getProperty("imagePath", context);
-			var imageId2 = this.getView().getModel().getProperty("imagePath", context);
+			var model = this.getView().getModel();
+			
 			//var itemId = this.getView().getModel().getProperty("ItemID", context);
 			var productId = this.getView().getModel().getProperty("productID", context);
-			var defect = this.getView().getModel().getProperty("defect", context);
+			//var defect = this.getView().getModel().getProperty("defect", context);
 			var factory = this.getView().getModel().getProperty("factory", context);
 			var date = this.getView().getModel().getProperty("date", context);
-
-			var displayText = "<h1>" + defect + "</h1><br>" + "<h2>" + date + "</h2><br>" + "<h2>" + productId + "</h2><br>" + "<h3>" + factory +
-				"</h3>";
-			this.getView().byId("label1").setHtmlText(displayText);
-
+			
+			
+			var products = model.getObject("/Products("+productId+")")
+			
+			var imageId1 = model.getProperty("/"+products["images"]["__list"][0]+"/url");
 			this.getView().byId("img1").setSrc(baseImageUrl + imageId1);
+			var imageId2 = model.getProperty("/"+products["images"]["__list"][1]+"/url");
 			this.getView().byId("img2").setSrc(baseImageUrl + imageId2);
+			
+			var defects
+		/*	var displayText = "<h1>" + defect + "</h1><br>" + "<h2>" + date + "</h2><br>" + "<h2>" + productId + "</h2><br>" + "<h3>" + factory +
+				"</h3>";
+			this.getView().byId("label1").setHtmlText(displayText);*/
+
+		
+			
 		}
 
 	});

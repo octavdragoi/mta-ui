@@ -36,21 +36,6 @@
 			<VBox id="vBoxCol4" class="column">
 				<html:div>
 					<table:Table id="ProductsDefectsTable" visibleRowCount="10" selectionMode="Single" editable="false" rows="{/ItemView}" rowSelectionChange="onSelectChange" sort="onSelectChange">
-						<table:Column sortProperty="ItemID" filterProperty="ItemID">
-							<!-- the label is shown in the header of the table -->
-							<table:label>
-								<Label text="Item ID" design="Bold"/>
-							</table:label>
-							<!-- for each column, a template is required which
-            defines how how the data is visualized -->
-							<table:template>
-								<!-- this label defines the actual content (aka the
-      rows) that are shown in the table. here, we bind the
-      column CUSTOMER_NAME of the data source
-      to this table column -->
-								<Label text="{ItemID}"/>
-							</table:template>
-						</table:Column>
 						<table:Column sortProperty="productID" filterProperty="productID">
 							<!-- the label is shown in the header of the table -->
 							<table:label>
@@ -64,21 +49,6 @@
       column CUSTOMER_NAME of the data source
       to this table column -->
 								<Label text="{productID}"/>
-							</table:template>
-						</table:Column>
-						<table:Column sortProperty="defect" filterProperty="defect">
-							<!-- the label is shown in the header of the table -->
-							<table:label>
-								<Label text="Defect" design="Bold"/>
-							</table:label>
-							<!-- for each column, a template is required which
-            defines how how the data is visualized -->
-							<table:template>
-								<!-- this label defines the actual content (aka the
-      rows) that are shown in the table. here, we bind the
-      column CUSTOMER_NAME of the data source
-      to this table column -->
-								<Label text="{defect}"/>
 							</table:template>
 						</table:Column>
 						<table:Column sortProperty="date" filterProperty="date">
