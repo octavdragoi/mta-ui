@@ -30,7 +30,19 @@ sap.ui.define([
 			model.read("/Products",
 			{
 				urlParameters : {
-					"$expand":"images"
+					"$expand":"images, products_defects"
+				}
+			});
+			
+			model.read("/Defects",
+			{
+			
+			});
+			
+			model.read("/Products_Defects",
+			{
+				urlParameters : {
+					"$expand":"defects"
 				}
 			});
 		},
@@ -65,6 +77,7 @@ sap.ui.define([
 			var factory = this.getView().getModel().getProperty("factory", context);
 			var date = this.getView().getModel().getProperty("date", context);
 			
+			console.log(model)
 			
 			var products = model.getObject("/Products("+productId+")")
 			
@@ -73,10 +86,18 @@ sap.ui.define([
 			var imageId2 = model.getProperty("/"+products["images"]["__list"][1]+"/url");
 			this.getView().byId("img2").setSrc(baseImageUrl + imageId2);
 			
-			var defects
-		/*	var displayText = "<h1>" + defect + "</h1><br>" + "<h2>" + date + "</h2><br>" + "<h2>" + productId + "</h2><br>" + "<h3>" + factory +
+			var products_defects = products["products_defects"]["__list"];
+			
+			var defect="";
+			for (var id in products_defects)
+			{
+				var defectId = model.getProperty("/"+products_defects[id]+"/defect_ID");
+				defect = defect + model.getProperty("/Defects("+defectId +")/description")+" ";
+			}
+			
+		  var displayText = "<h1>" + defect + "</h1><br>" + "<h2>" + date + "</h2><br>" + "<h2>" + productId + "</h2><br>" + "<h3>" + factory +
 				"</h3>";
-			this.getView().byId("label1").setHtmlText(displayText);*/
+			this.getView().byId("label1").setHtmlText(displayText);
 
 		
 			
