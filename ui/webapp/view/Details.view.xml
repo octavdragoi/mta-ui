@@ -63,7 +63,7 @@
       rows) that are shown in the table. here, we bind the
       column CUSTOMER_NAME of the data source
       to this table column -->
-								<Label text="{date}"/>
+								<Label text="{ path: 'date', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'EEE, d MMM yyyy HH:mm:ss zzzz' } }" />
 							</table:template>
 						</table:Column>
 						<table:Column sortProperty="factory" filterProperty="factory">

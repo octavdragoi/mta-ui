@@ -95,7 +95,10 @@ sap.ui.define([
 				defect = defect + model.getProperty("/Defects("+defectId +")/description")+" ";
 			}
 			
-		  var displayText = "<h1>" + defect + "</h1><br>" + "<h2>" + date + "</h2><br>" + "<h2>" + productId + "</h2><br>" + "<h3>" + factory +
+			var dateFormat = sap.ui.core.format.DateFormat.getDateInstance({pattern : "EEE, d MMM yyyy HH:mm:ss zzzz" });   
+			var dateFormatted = dateFormat.format(date);
+			
+			var displayText = "<h1>" + defect + "</h1><br>" + "<h2>" + dateFormatted + "</h2><br>" + "<h2>" + productId + "</h2><br>" + "<h3>" + factory +
 				"</h3>";
 			this.getView().byId("label1").setHtmlText(displayText);
 
