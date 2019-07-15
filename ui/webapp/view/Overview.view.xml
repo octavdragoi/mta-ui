@@ -40,7 +40,7 @@
 			<VBox id="vBoxCol3" class="chart">
 				<html:div>
 					<viz:VizFrame id="CountDefectBar" width="auto" legendVisible="false" uiConfig="{applicationSet:'fiori'}" vizType="bar"
-						vizProperties="{ title : {text:'Number of total Defects per Type'} }" noDataText="Process some data First!"
+						vizProperties="{ title : {text:'Number of Total Defects per Type'} }" noDataText="Process some data First!"
 						renderComplete="handleRenderComplete">
 						<viz:dataset>
 							<viz.data:FlattenedDataset id="flattenDataTimeSeries" data="{/countDefect}">
@@ -48,12 +48,12 @@
 									<viz.data:DimensionDefinition name="Defect Type" value="{defect}"/>
 								</viz.data:dimensions>
 								<viz.data:measures>
-									<viz.data:MeasureDefinition name="Defect Number" value="{NumDefect}"/>
+									<viz.data:MeasureDefinition name="Number of Defects" value="{NumDefect}"/>
 								</viz.data:measures>
 							</viz.data:FlattenedDataset>
 						</viz:dataset>
 						<viz:feeds>
-							<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Defect Number"/>
+							<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Number of Defects"/>
 							<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Defect Type"/>
 						</viz:feeds>
 					</viz:VizFrame>
@@ -73,7 +73,7 @@
 									<viz.data:DimensionDefinition name="Factory Location" value="{factoryName}"/>
 								</viz.data:dimensions>
 								<viz.data:measures>
-									<viz.data:MeasureDefinition name="Defect Number" value="{NumDefect}"/>
+									<viz.data:MeasureDefinition name="Number of Defects" value="{NumDefect}"/>
 								</viz.data:measures>
 							</viz.data:FlattenedDataset>
 						</viz:dataset>
