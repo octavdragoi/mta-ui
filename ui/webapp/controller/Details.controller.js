@@ -27,6 +27,7 @@ sap.ui.define([
 		onBeforeRendering: function () {
 			
 			var model = this.getView().getModel();
+
 			model.read("/Products",
 			{
 				urlParameters : {

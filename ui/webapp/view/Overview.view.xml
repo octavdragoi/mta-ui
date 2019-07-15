@@ -1,6 +1,6 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:viz="sap.viz.ui5.controls"
 	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns:viz.data="sap.viz.ui5.data" controllerName="it.tum.sap.ui.controller.Overview"
-	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout">
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout" xmlns:mc="sap.suite.ui.microchart">
 	<!--<App>-->
 	<!--	<pages>-->
 	<!--		<Page title="Title">-->
@@ -12,6 +12,23 @@
 	<!-- this HTML paragraph is used as a spacer -->
 	<l:Grid defaultSpan="L12 M12 S12">
 		<l:content>
+			<VBox id="vBoxCol5">
+				<html:div>
+					<!--<mc:RadialMicroChart id="percentage-chart" size="L" percentage="0.1" valueColor="Critical" press="press" class="sapUiSmallMargin"></mc:RadialMicroChart>-->
+					<GenericTile press="press" header="Defect Percentage" subheader="Critical" frameType="OneByOne" class="chart">
+						<tileContent>
+							<TileContent>
+								<content>
+									<mc:RadialMicroChart id="percentage-chart" size="L" percentage="99.9" alignContent="Center" valueColor="Error"/>
+								</content>
+							</TileContent>
+						</tileContent>
+					</GenericTile>
+				</html:div>
+				<layoutData>
+					<l:GridData span="L2 M2 S12"/>
+				</layoutData>
+			</VBox>
 			<VBox id="vBoxCol1" class="chart">
 				<html:div>
 					<viz:VizFrame id="idpiechartDefects" width="auto" legendVisible="true" uiConfig="{applicationSet:'fiori'}" vizType="pie"
@@ -34,13 +51,13 @@
 					</viz:VizFrame>
 				</html:div>
 				<layoutData>
-					<l:GridData span="L4 M4 S12"/>
+					<l:GridData span="L3 M4 S12"/>
 				</layoutData>
 			</VBox>
 			<VBox id="vBoxCol3" class="chart">
 				<html:div>
 					<viz:VizFrame id="CountDefectBar" width="auto" legendVisible="false" uiConfig="{applicationSet:'fiori'}" vizType="bar"
-						vizProperties="{ title : {text:'Number of Total Defects per Type'} }" noDataText="Process some data First!"
+						vizProperties="{ title : {text:'Total Defects per Type'} }" noDataText="Process some data First!"
 						renderComplete="handleRenderComplete">
 						<viz:dataset>
 							<viz.data:FlattenedDataset id="flattenDataTimeSeries" data="{/countDefect}">
@@ -59,7 +76,7 @@
 					</viz:VizFrame>
 				</html:div>
 				<layoutData>
-					<l:GridData span="L8 M8 S12"/>
+					<l:GridData span="L7 M6 S12"/>
 				</layoutData>
 			</VBox>
 			<VBox id="vBoxCol2" class="chart">
@@ -84,13 +101,13 @@
 					</viz:VizFrame>
 				</html:div>
 				<layoutData>
-					<l:GridData span="L4 M4 S12"/>
+					<l:GridData span="L3 M4 S12"/>
 				</layoutData>
 			</VBox>
 			<VBox id="vBoxCol4" class="chart">
 				<html:div>
 					<viz:VizFrame id="CountDefectDayBar" width="auto" legendVisible="false" uiConfig="{applicationSet:'fiori'}" vizType="line"
-						vizProperties="{ title : {text:'Number of total Defects per Day'} }" noDataText="Process some data First!"
+						vizProperties="{ title : {text:'Total Defects per Day'} }" noDataText="Process some data First!"
 						renderComplete="handleRenderComplete">
 						<viz:dataset>
 							<viz.data:FlattenedDataset id="flattenDataTimeSeries1" data="{/countDay}">
@@ -109,7 +126,7 @@
 					</viz:VizFrame>
 				</html:div>
 				<layoutData>
-					<l:GridData span="L8 M8 S12"/>
+					<l:GridData span="L9 M8 S12"/>
 				</layoutData>
 			</VBox>
 		</l:content>
