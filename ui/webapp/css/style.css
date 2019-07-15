@@ -8,3 +8,14 @@
 .image-box {
 	border: 3px dashed #ccc;
 }
+
+.defect-details h1 {
+	color: red;
+}
+
+.no-defect-details h1 {
+	color: green;
+}
+
+
+

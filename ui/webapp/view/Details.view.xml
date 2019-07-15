@@ -6,17 +6,19 @@
 			<VBox id="vBoxCol1">
 					<Image id="img1" width="200px" src="background.jpg" class="image-box"></Image>
 				<layoutData>
-					<l:GridData span="L2 M4 S6"/>
+					<l:GridData span="L2 M4 S12"/>
 				</layoutData>
 			</VBox>
 			<VBox id="vBoxCol2">
 					<Image id="img2" width="200px" src="background.jpg" class="image-box"></Image>
 				<layoutData>
-					<l:GridData span="L2 M4 S6"/>
+					<l:GridData span="L2 M4 S12"/>
 				</layoutData>
 			</VBox>
 			<VBox id="vBoxCol3" class="column" height="260px">
-				<FormattedText id="label1"></FormattedText>
+				<FormattedText id="defect-lable" class="defect-details"></FormattedText>
+				<FormattedText id="no-defect-lable" class="no-defect-details"></FormattedText>
+				<FormattedText id="other-details-lable" class="other-details"></FormattedText>
 				<layoutData>
 					<l:GridData span="L8 M4 S12"/>
 				</layoutData>

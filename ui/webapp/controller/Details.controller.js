@@ -45,6 +45,11 @@ sap.ui.define([
 					"$expand":"defects"
 				}
 			});
+			var sorter = new sap.ui.model.Sorter("/productID", true);
+			model.read("/ItemView",
+			{
+				sorter: [sorter]
+			});
 		},
 
 		/**
@@ -89,21 +94,30 @@ sap.ui.define([
 			var products_defects = products["products_defects"]["__list"];
 			
 			var defect="";
+			var noDefect="";
 			for (var id in products_defects)
 			{
 				var defectId = model.getProperty("/"+products_defects[id]+"/defect_ID");
-				defect = defect + model.getProperty("/Defects("+defectId +")/description")+" ";
+				var defectDescription = model.getProperty("/Defects("+defectId +")/description");
+				
+				if (defectDescription == "FINE"){
+					noDefect = noDefect + defectDescription + " ";
+				}
+				else {
+					defect = defect + defectDescription + " ";
+				}
 			}
 			
 			var dateFormat = sap.ui.core.format.DateFormat.getDateInstance({pattern : "EEE, d MMM yyyy HH:mm:ss zzzz" });   
 			var dateFormatted = dateFormat.format(date);
 			
-			var displayText = "<h1>" + defect + "</h1><br>" + "<h2>" + dateFormatted + "</h2><br>" + "<h2>" + productId + "</h2><br>" + "<h3>" + factory +
-				"</h3>";
-			this.getView().byId("label1").setHtmlText(displayText);
-
-		
+			var displayTextDefect = "<h2>Defect : </h2><h1> " + defect + "</h1><br>";
+			var displayTextNoDefect = "<h1>" + noDefect + "</h1><br>";
+			var displayTextOtherDetails = "<h2>Date : " + dateFormatted + "</h2><br>" + "<h2>Product ID : " + productId + "</h2><br>" + "<h3>Factory : " + factory +"</h3>";
 			
+			this.getView().byId("defect-lable").setHtmlText(displayTextDefect);
+			this.getView().byId("no-defect-lable").setHtmlText(displayTextNoDefect);
+			this.getView().byId("other-details-lable").setHtmlText(displayTextOtherDetails);
 		}
 
 	});
