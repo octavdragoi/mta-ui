@@ -111,7 +111,7 @@ sap.ui.define([
 			var dateFormat = sap.ui.core.format.DateFormat.getDateInstance({pattern : "EEE, d MMM yyyy HH:mm:ss zzzz" });   
 			var dateFormatted = dateFormat.format(date);
 			
-			var displayTextDefect = "<h2>Defect : </h2><h1> " + defect + "</h1><br>";
+			var displayTextDefect = "<h1> " + defect + "</h1><br>";
 			var displayTextNoDefect = "<h1>" + noDefect + "</h1><br>";
 			var displayTextOtherDetails = "<h2>Date : " + dateFormatted + "</h2><br>" + "<h2>Product ID : " + productId + "</h2><br>" + "<h3>Factory : " + factory +"</h3>";
 			
