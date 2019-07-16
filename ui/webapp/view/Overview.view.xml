@@ -19,7 +19,7 @@
 						<tileContent>
 							<TileContent>
 								<content>
-									<mc:RadialMicroChart id="percentage-chart" size="L" percentage="99.9" alignContent="Center" valueColor="Error"/>
+									<mc:RadialMicroChart id="percentage-chart" size="L" percentage="0.0" alignContent="Center" valueColor="Error"/>
 								</content>
 							</TileContent>
 						</tileContent>

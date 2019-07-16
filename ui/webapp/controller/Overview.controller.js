@@ -1,7 +1,6 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller",
-	"../model/formatter"
-], function (Controller, formatter) {
+	"sap/ui/core/mvc/Controller"
+], function (Controller) {
 
 	return Controller.extend("it.tum.sap.ui.controller.Overview", {
 		/**
