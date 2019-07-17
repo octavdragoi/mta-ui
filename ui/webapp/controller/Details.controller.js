@@ -10,13 +10,7 @@ sap.ui.define([
 		 * @memberOf it.tum.sap.ui.view.Details
 		 */
 		onInit: function () {
-			
-			// var dataModel = new sap.ui.model.odata.ODataModel(
-			// 	"/quality/odata/v2/ViewConsumerServices/");
 
-			// // after that, we can bind the odata model the
-			// // SalesOrders view, so controls within the view can use them
-			// this.getView().setModel(dataModel);
 		},
 
 		/**
@@ -25,30 +19,26 @@ sap.ui.define([
 		 * @memberOf it.tum.sap.quality_inspection_fa.view.Details
 		 */
 		onBeforeRendering: function () {
-			
+
 			var model = this.getView().getModel();
 
-			model.read("/Products",
-			{
-				urlParameters : {
-					"$expand":"images, products_defects"
+			model.read("/Products", {
+				urlParameters: {
+					"$expand": "images, products_defects"
 				}
 			});
-			
-			model.read("/Defects",
-			{
-			
+
+			model.read("/Defects", {
+
 			});
-			
-			model.read("/Products_Defects",
-			{
-				urlParameters : {
-					"$expand":"defects"
+
+			model.read("/Products_Defects", {
+				urlParameters: {
+					"$expand": "defects"
 				}
 			});
 			var sorter = new sap.ui.model.Sorter("/productID", true);
-			model.read("/ItemView",
-			{
+			model.read("/ItemView", {
 				sorter: [sorter]
 			});
 		},
@@ -59,7 +49,7 @@ sap.ui.define([
 		 * @memberOf it.tum.sap.quality_inspection_fa.view.Details
 		 */
 		onAfterRendering: function () {
-			//this.getView().byId("ProductsDefectsTable").setSelectedIndex(0);
+
 		},
 
 		/**
@@ -76,46 +66,43 @@ sap.ui.define([
 			var baseImageUrl = "https://" + "quality-assurance-image-service.cfapps.eu10.hana.ondemand.com?key=";
 
 			var model = this.getView().getModel();
-			
-			//var itemId = this.getView().getModel().getProperty("ItemID", context);
+
 			var productId = this.getView().getModel().getProperty("productID", context);
-			//var defect = this.getView().getModel().getProperty("defect", context);
 			var factory = this.getView().getModel().getProperty("factory", context);
 			var date = this.getView().getModel().getProperty("date", context);
-			
-			console.log(model)
-			
-			var products = model.getObject("/Products("+productId+")")
-			
-			var imageId1 = model.getProperty("/"+products["images"]["__list"][0]+"/url");
+
+			var products = model.getObject("/Products(" + productId + ")");
+
+			var imageId1 = model.getProperty("/" + products["images"]["__list"][0] + "/url");
 			this.getView().byId("img1").setSrc(baseImageUrl + imageId1);
-			var imageId2 = model.getProperty("/"+products["images"]["__list"][1]+"/url");
+			var imageId2 = model.getProperty("/" + products["images"]["__list"][1] + "/url");
 			this.getView().byId("img2").setSrc(baseImageUrl + imageId2);
-			
+
 			var products_defects = products["products_defects"]["__list"];
-			
-			var defect="";
-			var noDefect="";
-			for (var id in products_defects)
-			{
-				var defectId = model.getProperty("/"+products_defects[id]+"/defect_ID");
-				var defectDescription = model.getProperty("/Defects("+defectId +")/description");
-				
-				if (defectDescription == "FINE"){
+
+			var defect = "";
+			var noDefect = "";
+			for (var id in products_defects) {
+				var defectId = model.getProperty("/" + products_defects[id] + "/defect_ID");
+				var defectDescription = model.getProperty("/Defects(" + defectId + ")/description");
+
+				if (defectDescription == "FINE") {
 					noDefect = noDefect + defectDescription + " ";
-				}
-				else {
+				} else {
 					defect = defect + defectDescription + " ";
 				}
 			}
-			
-			var dateFormat = sap.ui.core.format.DateFormat.getDateInstance({pattern : "EEE, d MMM yyyy HH:mm:ss zzzz" });   
+
+			var dateFormat = sap.ui.core.format.DateFormat.getDateInstance({
+				pattern: "EEE, d MMM yyyy HH:mm:ss zzzz"
+			});
 			var dateFormatted = dateFormat.format(date);
-			
+
 			var displayTextDefect = "<h1> " + defect + "</h1><br>";
 			var displayTextNoDefect = "<h1>" + noDefect + "</h1><br>";
-			var displayTextOtherDetails = "<h2>Date : " + dateFormatted + "</h2><br>" + "<h2>Product ID : " + productId + "</h2><br>" + "<h3>Factory : " + factory +"</h3>";
-			
+			var displayTextOtherDetails = "<h2>Date : " + dateFormatted + "</h2><br>" + "<h2>Product ID : " + productId + "</h2><br>" +
+				"<h3>Factory : " + factory + "</h3>";
+
 			this.getView().byId("defect-lable").setHtmlText(displayTextDefect);
 			this.getView().byId("no-defect-lable").setHtmlText(displayTextNoDefect);
 			this.getView().byId("other-details-lable").setHtmlText(displayTextOtherDetails);
