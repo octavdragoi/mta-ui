@@ -32,12 +32,12 @@ sap.ui.define([
 
 					var defectPercentage = (dentCount + stainCount + scratchCount + holeCount + wrongObjectCount) * 100 / (dentCount + stainCount +
 						scratchCount + holeCount + wrongObjectCount + fineCount);
-
+					defectPercentage = 0.7;
 					view.byId("percentage-chart").setPercentage(defectPercentage);
 
 					if (defectPercentage < 1) {
 						view.byId("percentage-chart").setValueColor("Good");
-						view.byId("percentage-chart-tile").setSubheader("Ok");
+						view.byId("percentage-chart-tile").setSubheader("Normal");
 					} else if (defectPercentage < 5) {
 						view.byId("percentage-chart").setValueColor("Critical");
 						view.byId("percentage-chart-tile").setSubheader("Warning");
