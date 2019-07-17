@@ -32,7 +32,7 @@ sap.ui.define([
 
 					var defectPercentage = (dentCount + stainCount + scratchCount + holeCount + wrongObjectCount) * 100 / (dentCount + stainCount +
 						scratchCount + holeCount + wrongObjectCount + fineCount);
-					defectPercentage = 0.7;
+	
 					view.byId("percentage-chart").setPercentage(defectPercentage);
 
 					if (defectPercentage < 1) {
