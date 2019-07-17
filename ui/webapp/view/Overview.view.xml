@@ -15,7 +15,7 @@
 			<VBox id="vBoxCol5">
 				<html:div>
 					<!--<mc:RadialMicroChart id="percentage-chart" size="L" percentage="0.1" valueColor="Critical" press="press" class="sapUiSmallMargin"></mc:RadialMicroChart>-->
-					<GenericTile press="press" header="Defects Percentage" subheader="Critical" frameType="OneByOne" class="chart">
+					<GenericTile id="percentage-chart-tile" press="press" header="Defects Percentage" subheader="Critical" frameType="OneByOne" class="chart">
 						<tileContent>
 							<TileContent>
 								<content>
